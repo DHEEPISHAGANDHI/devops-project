@@ -2,21 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clone') {
             steps {
-                echo 'Building project...'
+                git 'https://github.com/DHEEPISHAGANDHI/devops-project.git'
             }
         }
 
-        stage('Test') {
+        stage('Terraform Init') {
             steps {
-                echo 'Testing project...'
+                sh 'cd terraform && terraform init'
             }
         }
 
-        stage('Deploy') {
+        stage('Terraform Apply') {
             steps {
-                echo 'Deploying project...'
+                sh 'cd terraform && terraform apply -auto-approve'
             }
         }
     }
