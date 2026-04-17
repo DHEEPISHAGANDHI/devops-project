@@ -46,6 +46,15 @@ This starts:
  - `web` on port 3001
 - `mongo` on port 27017
 
+### Docker MongoDB Host Rule
+
+When your Node app runs inside Docker, do not use `127.0.0.1` for MongoDB.
+
+- Wrong inside container: `mongodb://127.0.0.1:27017/bookstore_db`
+- Correct inside container: `mongodb://devops_project-mongo-1:27017/bookstore_db`
+
+Reason: inside a container, `localhost` points to that same container, not to the Mongo container.
+
 ## Features
 
 - Books are loaded from MongoDB.
