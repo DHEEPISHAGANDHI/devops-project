@@ -2,12 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
+       stage('Clone') {
     steps {
         git branch: 'main', url: 'https://github.com/DHEEPISHAGANDHI/devops-project.git'
     }
 }
-        }
 
         stage('Terraform Init') {
             steps {
