@@ -3,9 +3,10 @@ pipeline {
 
     stages {
         stage('Clone') {
-            steps {
-                git 'https://github.com/DHEEPISHAGANDHI/devops-project.git'
-            }
+    steps {
+        git branch: 'main', url: 'https://github.com/DHEEPISHAGANDHI/devops-project.git'
+    }
+}
         }
 
         stage('Terraform Init') {
